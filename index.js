@@ -43,7 +43,7 @@ mongoose.connect(
 );
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Credentials", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Credentials", "*");
   next();
 });
 
@@ -53,20 +53,6 @@ app.use((req, res, next) => {
 //     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 //   });
 // }
-
-app.use((req, res, next) => {
-  const error = new Error("Not Found!");
-  error.status = 404;
-  next(error);
-});
-app.use((error, req, res, next) => {
-  res.status(error.status || 500);
-  res.json({
-    error: {
-      message: error.message,
-    },
-  });
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
