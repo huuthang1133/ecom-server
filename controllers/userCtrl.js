@@ -7,7 +7,6 @@ const userCtrl = {
   register: async (req, res) => {
     try {
       const { name, email } = req.body;
-      console.log(req.body);
 
       const user = await Users.findOne({ email });
       if (user)
