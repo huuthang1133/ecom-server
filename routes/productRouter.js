@@ -8,6 +8,8 @@ router
   .get(productCtrl.getProducts)
   .post(auth, authAdmin, productCtrl.createProduct);
 
+router.route(`/product/:id`).get(productCtrl.getProductById);
+
 router
   .route("/products/:id")
   .delete(auth, authAdmin, productCtrl.deleteProduct)

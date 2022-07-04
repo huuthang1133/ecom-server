@@ -27,9 +27,6 @@ app.use("/api", require("./routes/categoryRouter"));
 app.use("/api", require("./routes/upload"));
 app.use("/api", require("./routes/productRouter"));
 app.use("/api", require("./routes/paymentRouter"));
-app.use("/", (req, res) => {
-  res.send("Hello");
-});
 
 // Connect to mongodb
 const URI = process.env.MONGODB_URL;
@@ -49,13 +46,6 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", "*");
   next();
 });
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-//   });
-// }
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -78,6 +78,16 @@ const productCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+
+  getProductById: async (req, res) => {
+    try {
+      const product = await Products.findById(req.params.id);
+      if (product) return res.json(product);
+      return res.status(500).json({ msg: "No Product Match!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   createProduct: async (req, res) => {
     try {
       const {
