@@ -81,7 +81,9 @@ const productCtrl = {
 
   getProductById: async (req, res) => {
     try {
-      const product = await Products.findById(req.params.id);
+      const product = await Products.findById(req.params.id).populate(
+        "category"
+      );
       if (product) return res.json(product);
       return res.status(500).json({ msg: "No Product Match!" });
     } catch (err) {
