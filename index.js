@@ -42,9 +42,11 @@ mongoose.connect(
   }
 );
 
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Credentials", "http://localhost:3000");
-// });
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Credentials", "http://localhost:3000");
+  next();
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
