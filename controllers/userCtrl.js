@@ -85,6 +85,7 @@ const userCtrl = {
   refreshToken: (req, res) => {
     try {
       const rf_token = req.cookies.refreshtoken;
+      console.log(rf_token);
       if (!rf_token)
         return res.status(400).json({ msg: "Please Login or Register" });
 
@@ -161,7 +162,7 @@ const userCtrl = {
 };
 
 const createAccessToken = (user) => {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "10m" });
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1m" });
 };
 const createRefreshToken = (user) => {
   return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
