@@ -38,7 +38,7 @@ const userCtrl = {
         domain: ".netlify.app",
         sameSite: false,
         path: "/",
-        secure: true,
+        // secure: true, Not same site
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7d
       });
 
@@ -66,7 +66,7 @@ const userCtrl = {
         sameSite: false,
         domain: ".netlify.app",
         path: "/",
-        secure: true,
+        // secure: true, Not same site
         maxAge: 7 * 24 * 60 * 60 * 1000,
         // 7d
         // 7 * 24 * 60 * 60 * 1000,
