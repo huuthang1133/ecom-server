@@ -35,10 +35,9 @@ const userCtrl = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        domain: ".netlify.app",
         sameSite: false,
         path: "/",
-        // secure: true, Not same site
+        secure: true, //Not same site
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7d
       });
 
@@ -64,9 +63,8 @@ const userCtrl = {
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
         sameSite: false,
-        domain: ".netlify.app",
         path: "/",
-        // secure: true, Not same site
+        secure: true, //Not same site
         maxAge: 7 * 24 * 60 * 60 * 1000,
         // 7d
         // 7 * 24 * 60 * 60 * 1000,
