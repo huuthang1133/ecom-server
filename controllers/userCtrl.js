@@ -35,7 +35,9 @@ const userCtrl = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
+        domain: ".netlify.app",
         path: "/",
+        secure: true,
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7d
       });
 
@@ -60,6 +62,7 @@ const userCtrl = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
+        domain: ".netlify.app",
         path: "/",
         secure: true,
         maxAge: 7 * 24 * 60 * 60 * 1000,
@@ -85,7 +88,6 @@ const userCtrl = {
   refreshToken: (req, res) => {
     try {
       const rf_token = req.cookies.refreshtoken;
-      console.log(rf_token);
       if (!rf_token)
         return res.status(400).json({ msg: "Please Login or Register" });
 
